@@ -1,0 +1,33 @@
+app:
+  host: 0.0.0.0
+  port: 8000
+  log_level: INFO
+  request_timeout_sec: 120
+  docs_enabled: true
+
+pollinations:
+  base_url: https://gen.pollinations.ai
+  default_image_model: flux
+  api_keys:
+    - sk_key_1
+    - sk_key_2
+  use_proxy_2080: true
+  proxy_2080_url: socks5://127.0.0.1:2080
+  trust_env_proxy: false
+  max_attempts_per_request: 6
+  retry_status_codes: [402, 429, 500, 502, 503, 504]
+  retry_backoff_sec: 0.35
+  cooldown_sec: 20
+
+image_defaults:
+  n: 1
+  size: 1024x1024
+  quality: medium
+  response_format: b64_json
+
+admin:
+  enabled: true
+  require_token: false
+  token: ""
+  header_name: x-admin-token
+  models_cache_ttl_sec: 180
